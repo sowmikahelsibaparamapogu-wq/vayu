@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "type": "object",
+      "description": "User profile authenticated via Firebase Google Sign-In",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "OperationalBookmark": {
+      "title": "OperationalBookmark",
+      "type": "object",
+      "description": "Saved priority infrastructure facility bookmark or operational note by disaster coordinators",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "assetId": { "type": "string" },
+        "assetName": { "type": "string" },
+        "cycloneName": { "type": "string" },
+        "riskTier": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "assetId", "assetName", "riskTier", "createdAt"]
+    },
+    "IncidentLog": {
+      "title": "IncidentLog",
+      "type": "object",
+      "description": "Custom disaster management action log or evacuation directive saved by emergency teams",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "title": { "type": "string" },
+        "cycloneName": { "type": "string" },
+        "status": { "type": "string" },
+        "details": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "title", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Authenticated user profile document"
+    },
+    "/users/{userId}/bookmarks/{bookmarkId}": {
+      "schema": "OperationalBookmark",
+      "description": "User saved high-priority infrastructure bookmarks and operational directives"
+    },
+    "/incidents/{incidentId}": {
+      "schema": "IncidentLog",
+      "description": "Shared operational incident directives logged by disaster commanders"
+    }
+  }
+}

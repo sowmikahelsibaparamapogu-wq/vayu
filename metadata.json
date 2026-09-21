@@ -1,0 +1,6 @@
+{
+  "name": "Vayu",
+  "description": "AI-based tropical cyclone impact zone forecasting and critical infrastructure vulnerability scoring system for disaster management authorities.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

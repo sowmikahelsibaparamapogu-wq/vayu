@@ -1,0 +1,2077 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "hos-01",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.828,
+          19.808
+        ]
+      },
+      "properties": {
+        "id": "hos-01",
+        "name": "Puri District Headquarters Hospital (DHH)",
+        "type": "hospital",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 4.5,
+        "dist_to_coast_km": 1.4,
+        "capacity": "450 beds, 24 ICU, Regional Trauma Care",
+        "backup_power": true,
+        "backup_hours": 18,
+        "structure_type": "RCC Frame - Older",
+        "age_years": 32,
+        "population_served": 420000,
+        "critical_notes": "Ground-floor oxygen pipeline manifolds vulnerable to surge inundation. Direct coastal exposure.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-02",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.765,
+          20.231
+        ]
+      },
+      "properties": {
+        "id": "hos-02",
+        "name": "AIIMS Bhubaneswar Super-Specialty Medical Center",
+        "type": "hospital",
+        "district": "Khordha",
+        "state": "Odisha",
+        "elevation_m": 38,
+        "dist_to_coast_km": 54,
+        "capacity": "1000 beds, 120 ICU, Level-1 Trauma",
+        "backup_power": true,
+        "backup_hours": 96,
+        "structure_type": "RCC Frame - Stilted Modern",
+        "age_years": 11,
+        "population_served": 1800000,
+        "critical_notes": "High inland elevation provides refuge, but high winds can dislodge rooftop HVAC and communication arrays.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-03",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.892,
+          20.468
+        ]
+      },
+      "properties": {
+        "id": "hos-03",
+        "name": "SCB Medical College & Hospital Cuttack",
+        "type": "hospital",
+        "district": "Cuttack",
+        "state": "Odisha",
+        "elevation_m": 22,
+        "dist_to_coast_km": 68,
+        "capacity": "1200 beds, 90 ICU, Neonatal ICU",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Frame - Retrofitted",
+        "age_years": 45,
+        "population_served": 2500000,
+        "critical_notes": "Mahanadi riverine backwater flood risk during sustained cyclone deluge.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-04",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.095,
+          19.892
+        ]
+      },
+      "properties": {
+        "id": "hos-04",
+        "name": "Konark Sub-Divisional Hospital",
+        "type": "hospital",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 3.2,
+        "dist_to_coast_km": 2.8,
+        "capacity": "80 beds, 6 Emergency, Maternity wing",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Masonry Load-bearing",
+        "age_years": 28,
+        "population_served": 95000,
+        "critical_notes": "Lacks heavy diesel generator; high coastal surge risk zone within 3 km.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-05",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.287,
+          13.106
+        ]
+      },
+      "properties": {
+        "id": "hos-05",
+        "name": "Government Stanley Medical College Hospital",
+        "type": "hospital",
+        "district": "Chennai",
+        "state": "Tamil Nadu",
+        "elevation_m": 5,
+        "dist_to_coast_km": 1.2,
+        "capacity": "1300 beds, 110 ICU, Trauma Care",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "RCC Frame - Older",
+        "age_years": 52,
+        "population_served": 2100000,
+        "critical_notes": "Old North Chennai drainage basin; high risk of flash urban basement flooding paralyzing power vault.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-06",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          79.983,
+          14.442
+        ]
+      },
+      "properties": {
+        "id": "hos-06",
+        "name": "Nellore Government General Hospital",
+        "type": "hospital",
+        "district": "Nellore",
+        "state": "Andhra Pradesh",
+        "elevation_m": 19,
+        "dist_to_coast_km": 24,
+        "capacity": "750 beds, 55 ICU",
+        "backup_power": true,
+        "backup_hours": 30,
+        "structure_type": "RCC Frame - Modern",
+        "age_years": 16,
+        "population_served": 850000,
+        "critical_notes": "Pennar river flood catchment; requires fuel reserves for uninterrupted operation.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-01",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.811,
+          19.824
+        ]
+      },
+      "properties": {
+        "id": "pow-01",
+        "name": "Puri Town 220/132/33kV Main Grid Substation",
+        "type": "power_substation",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 3.8,
+        "dist_to_coast_km": 2.1,
+        "capacity": "320 MVA, Powers entire municipal water & hospitals",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Outdoor Switchyard Air-Insulated",
+        "age_years": 24,
+        "population_served": 480000,
+        "critical_notes": "Outdoor busbars and 220kV gantry towers highly susceptible to 180+ km/h wind shear and saline spray flashover.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-02",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.856,
+          20.298
+        ]
+      },
+      "properties": {
+        "id": "pow-02",
+        "name": "OPTCL Mancheswar 400/220kV Bulk Power Station",
+        "type": "power_substation",
+        "district": "Khordha",
+        "state": "Odisha",
+        "elevation_m": 42,
+        "dist_to_coast_km": 58,
+        "capacity": "630 MVA, State Capital Backbone",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "Gas-Insulated GIS Enclosed",
+        "age_years": 9,
+        "population_served": 1900000,
+        "critical_notes": "Enclosed GIS protected from wind/saline debris; incoming 400kV transmission line towers at risk of galloping.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-03",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.312,
+          13.168
+        ]
+      },
+      "properties": {
+        "id": "pow-03",
+        "name": "TANGEDCO Manali 400kV Petrochemical Substation",
+        "type": "power_substation",
+        "district": "Chennai",
+        "state": "Tamil Nadu",
+        "elevation_m": 2.2,
+        "dist_to_coast_km": 3.5,
+        "capacity": "500 MVA, Manali industrial & water plants",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Outdoor Air-Insulated",
+        "age_years": 29,
+        "population_served": 750000,
+        "critical_notes": "Low-lying Kosasthalaiyar river floodplain; historical inundation depth 1.8m during cyclonic rain.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-04",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.924,
+          20.814
+        ]
+      },
+      "properties": {
+        "id": "pow-04",
+        "name": "Dhamra Port & Coastal Grid Terminal 132kV",
+        "type": "power_substation",
+        "district": "Bhadrak",
+        "state": "Odisha",
+        "elevation_m": 2.9,
+        "dist_to_coast_km": 1.1,
+        "capacity": "160 MVA, Port cargo cranes and radar",
+        "backup_power": true,
+        "backup_hours": 24,
+        "structure_type": "Heavy Steel Gantry",
+        "age_years": 14,
+        "population_served": 180000,
+        "critical_notes": "Estuarine confluence; storm surge can overtop river embankments and submerge transformer yard.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-01",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.262,
+          19.988
+        ]
+      },
+      "properties": {
+        "id": "she-01",
+        "name": "Astaranga Multi-Purpose Cyclone Shelter (ODRRP-04)",
+        "type": "cyclone_shelter",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 6.8,
+        "dist_to_coast_km": 1.8,
+        "capacity": "2500 persons, livestock shelter on ground ramp",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Stilted Engineered Cyclone Haven",
+        "age_years": 8,
+        "population_served": 12000,
+        "critical_notes": "Aerodynamic rounded roof profile, elevated 4m above astronomical tide. Solar microgrid on rooftop.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-02",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.068,
+          19.878
+        ]
+      },
+      "properties": {
+        "id": "she-02",
+        "name": "Chandrabhaga Coastal Fisherman Colony MPCS",
+        "type": "cyclone_shelter",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 4.1,
+        "dist_to_coast_km": 0.8,
+        "capacity": "1800 persons",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "RCC Stilted Shelter",
+        "age_years": 21,
+        "population_served": 8500,
+        "critical_notes": "Directly on coastal dune front; extreme wave run-up danger. Needs pre-staged drinking water.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-03",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.345,
+          19.682
+        ]
+      },
+      "properties": {
+        "id": "she-03",
+        "name": "Satapada Chilika Lake Evacuation Center",
+        "type": "cyclone_shelter",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 3,
+        "dist_to_coast_km": 3.2,
+        "capacity": "2000 persons, boat staging dock",
+        "backup_power": true,
+        "backup_hours": 24,
+        "structure_type": "RCC Reinforced Frame",
+        "age_years": 15,
+        "population_served": 9200,
+        "critical_notes": "Chilika lagoon surge funneling effect; primary access road gets cut off by 1.2m tidal swell.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-04",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.324,
+          13.228
+        ]
+      },
+      "properties": {
+        "id": "she-04",
+        "name": "Ennore Creek Disaster Relief & Community Center",
+        "type": "cyclone_shelter",
+        "district": "Tiruvallur",
+        "state": "Tamil Nadu",
+        "elevation_m": 3.5,
+        "dist_to_coast_km": 1.5,
+        "capacity": "1600 persons",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "RCC Two-Tier Frame",
+        "age_years": 19,
+        "population_served": 14000,
+        "critical_notes": "Surrounded by industrial drainage canals; chemical industrial run-off vulnerability during backflow.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-05",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.128,
+          14.912
+        ]
+      },
+      "properties": {
+        "id": "she-05",
+        "name": "Kavali Coastal Fishery Community Cyclone Shelter",
+        "type": "cyclone_shelter",
+        "district": "Nellore",
+        "state": "Andhra Pradesh",
+        "elevation_m": 5.2,
+        "dist_to_coast_km": 2.2,
+        "capacity": "2200 persons",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "RCC Engineered Stilted",
+        "age_years": 12,
+        "population_served": 11500,
+        "critical_notes": "Designed for 200 km/h wind shear; safe structural refuge for low-lying salt pan laborers.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "roa-01",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.834,
+          19.864
+        ]
+      },
+      "properties": {
+        "id": "roa-01",
+        "name": "NH-316 Puri-Bhubaneswar Primary Evacuation Expressway",
+        "type": "road_lifeline",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 7.5,
+        "dist_to_coast_km": 7,
+        "capacity": "4-Lane High Volume (35,000 PCU/day)",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Bituminous Highway on Embankment",
+        "age_years": 7,
+        "population_served": 650000,
+        "critical_notes": "Main lifeline for inward civilian evacuation; avenue trees prone to falling and blocking km 12-28.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "roa-02",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.882,
+          20.485
+        ]
+      },
+      "properties": {
+        "id": "roa-02",
+        "name": "Mahanadi River Dual Road Bridge (NH-16 Vital Lifeline)",
+        "type": "road_lifeline",
+        "district": "Cuttack",
+        "state": "Odisha",
+        "elevation_m": 25,
+        "dist_to_coast_km": 72,
+        "capacity": "6-Lane Major River Bridge & Freight Spine",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Prestressed Concrete Girder Bridge",
+        "age_years": 18,
+        "population_served": 3500000,
+        "critical_notes": "Critical corridor for National Disaster Response Force (NDRF) convoys into coastal districts.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "roa-03",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.258,
+          12.875
+        ]
+      },
+      "properties": {
+        "id": "roa-03",
+        "name": "East Coast Road (ECR) Chennai-Mamallapuram Expressway",
+        "type": "road_lifeline",
+        "district": "Kanchipuram",
+        "state": "Tamil Nadu",
+        "elevation_m": 4.2,
+        "dist_to_coast_km": 0.4,
+        "capacity": "4-Lane Scenic & Commuter Highway",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Coastal Flexible Pavement",
+        "age_years": 15,
+        "population_served": 450000,
+        "critical_notes": "Direct wave scouring hazard at km 28; vulnerable to coastal erosion and sand dune overwash.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tel-01",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.819,
+          19.799
+        ]
+      },
+      "properties": {
+        "id": "tel-01",
+        "name": "BSNL Coastal Emergency Telecom Tower & VHF Repeater",
+        "type": "telecom_tower",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 5,
+        "dist_to_coast_km": 0.9,
+        "capacity": "85m Mast, VHF Disaster Net & 4G Base Station",
+        "backup_power": true,
+        "backup_hours": 12,
+        "structure_type": "Steel Lattice Guyed Mast",
+        "age_years": 22,
+        "population_served": 310000,
+        "critical_notes": "Guy wires engineered for 180 km/h; gusts exceeding 210 km/h pose catastrophic mast buckling risk.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tel-02",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.711,
+          20.288
+        ]
+      },
+      "properties": {
+        "id": "tel-02",
+        "name": "IMD Doppler Weather Radar & Coastal Telemetry Paradip",
+        "type": "telecom_tower",
+        "district": "Jagatsinghpur",
+        "state": "Odisha",
+        "elevation_m": 12,
+        "dist_to_coast_km": 1.2,
+        "capacity": "S-Band Radar Dome & Satellite Uplink",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "Reinforced Concrete Tower with Radome",
+        "age_years": 14,
+        "population_served": 12000000,
+        "critical_notes": "Crucial national early-warning asset. Radome structure tested to 240 km/h, but backup diesel must be protected.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tel-03",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.298,
+          13.088
+        ]
+      },
+      "properties": {
+        "id": "tel-03",
+        "name": "Chennai Port Trust VTS Marine Radio & Telecom Relay",
+        "type": "telecom_tower",
+        "district": "Chennai",
+        "state": "Tamil Nadu",
+        "elevation_m": 6.5,
+        "dist_to_coast_km": 0.2,
+        "capacity": "60m Monopole, Maritime Distress Channel 16",
+        "backup_power": true,
+        "backup_hours": 24,
+        "structure_type": "Heavy Monopole Flanged",
+        "age_years": 10,
+        "population_served": 500000,
+        "critical_notes": "Coordinates vessel emergency evacuation and harbor tug dispatches.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wat-01",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.845,
+          19.818
+        ]
+      },
+      "properties": {
+        "id": "wat-01",
+        "name": "Mangala River Intake & Municipal Water Treatment Plant",
+        "type": "water_facility",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 3.6,
+        "dist_to_coast_km": 2.5,
+        "capacity": "45 MLD (Million Liters/Day) Potable Water",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Masonry & Steel Pump House",
+        "age_years": 27,
+        "population_served": 380000,
+        "critical_notes": "If river flood submerges raw water pumps, drinking water supply halts within 8 hours across Puri town.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wat-02",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.242,
+          13.078
+        ]
+      },
+      "properties": {
+        "id": "wat-02",
+        "name": "Kilpauk Water Treatment Works & Clear Water Pumps",
+        "type": "water_facility",
+        "district": "Chennai",
+        "state": "Tamil Nadu",
+        "elevation_m": 12,
+        "dist_to_coast_km": 5.5,
+        "capacity": "270 MLD, Serves Central Chennai",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Water Purification Basins",
+        "age_years": 40,
+        "population_served": 3100000,
+        "critical_notes": "Key clean water reservoir; power continuity critical to avoid post-cyclone water-borne disease epidemic.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wat-03",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.342,
+          13.292
+        ]
+      },
+      "properties": {
+        "id": "wat-03",
+        "name": "Minjur Seawater Reverse Osmosis (SWRO) Desalination Plant",
+        "type": "water_facility",
+        "district": "Tiruvallur",
+        "state": "Tamil Nadu",
+        "elevation_m": 2.8,
+        "dist_to_coast_km": 0.5,
+        "capacity": "100 MLD Fresh Water from Sea",
+        "backup_power": true,
+        "backup_hours": 18,
+        "structure_type": "High Pressure Membrane Facility",
+        "age_years": 14,
+        "population_served": 1000000,
+        "critical_notes": "Intake pipelines vulnerable to extreme ocean swell turbidity; requires shutdown if surge exceeds 3m.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-07",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.451,
+          19.803
+        ]
+      },
+      "properties": {
+        "id": "hos-07",
+        "name": "Bramhagiri Community Health Center (CHC)",
+        "type": "hospital",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 3.5,
+        "dist_to_coast_km": 1.2,
+        "capacity": "60 beds, 4 Emergency triage beds, Maternity ward",
+        "backup_power": true,
+        "backup_hours": 24,
+        "structure_type": "RCC Frame - Elevated",
+        "age_years": 15,
+        "population_served": 110000,
+        "critical_notes": "Primary emergency triage point for Chilika lake barrier spit communities. High storm surge exposure.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-06",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.196,
+          20.012
+        ]
+      },
+      "properties": {
+        "id": "she-06",
+        "name": "Kakatpur Multi-Purpose Cyclone Shelter Haven (ODRRP-12)",
+        "type": "cyclone_shelter",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 5.5,
+        "dist_to_coast_km": 6.5,
+        "capacity": "2000 persons, elevated cattle ramp",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Stilted Engineered Haven",
+        "age_years": 7,
+        "population_served": 14000,
+        "critical_notes": "Prachi river basin cyclone haven equipped with solar water purification unit and satellite receiver.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-05",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.012,
+          19.989
+        ]
+      },
+      "properties": {
+        "id": "pow-05",
+        "name": "Gop 132/33kV Coastal Rural Feeder Substation",
+        "type": "power_substation",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 4.2,
+        "dist_to_coast_km": 8.4,
+        "capacity": "100 MVA, Powers Nimapara and Gop medical centers",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Outdoor Air-Insulated Switchyard",
+        "age_years": 19,
+        "population_served": 230000,
+        "critical_notes": "Feeds emergency water lifting pumps across 14 panchayats; susceptible to conductor snapping in gale winds.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wat-04",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.441,
+          19.678
+        ]
+      },
+      "properties": {
+        "id": "wat-04",
+        "name": "Satapada Chilika Marine Rescue Depot & Potable Water Booster",
+        "type": "water_facility",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 2.1,
+        "dist_to_coast_km": 0.8,
+        "capacity": "15 MLD RO desalination & pump station, ODRC boat station",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "Reinforced Coastal Marine Terminal",
+        "age_years": 10,
+        "population_served": 65000,
+        "critical_notes": "Vital drinking water source for lagoon spit islands; sea-level rise and saltwater intrusion vulnerability.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tel-04",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.115,
+          19.896
+        ]
+      },
+      "properties": {
+        "id": "tel-04",
+        "name": "Konark Marine Drive BSNL Optical Repeater & Tower",
+        "type": "telecom_tower",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 4,
+        "dist_to_coast_km": 0.6,
+        "capacity": "90m guyed lattice mast, Microwave link & 4G/5G base",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Lattice Tower with Guyed Anchors",
+        "age_years": 12,
+        "population_served": 180000,
+        "critical_notes": "Direct coastal exposure on Puri-Konark Marine Drive; high wind drag coefficient.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "roa-04",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.102,
+          19.876
+        ]
+      },
+      "properties": {
+        "id": "roa-04",
+        "name": "Chandrabhaga Coastal Evacuation Lifeline Bridge (SH-35)",
+        "type": "road_lifeline",
+        "district": "Puri",
+        "state": "Odisha",
+        "elevation_m": 3.1,
+        "dist_to_coast_km": 0.4,
+        "capacity": "4-lane reinforced pre-stressed concrete bridge, 600m span",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Prestressed Concrete Girder Bridge",
+        "age_years": 14,
+        "population_served": 350000,
+        "critical_notes": "Sole evacuation artery linking Konark coast to Bhubaneswar; wave splash and sand spit scour risk.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-08",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.672,
+          20.261
+        ]
+      },
+      "properties": {
+        "id": "hos-08",
+        "name": "Paradip Port Trust Central Hospital & Trauma Ward",
+        "type": "hospital",
+        "district": "Jagatsinghpur",
+        "state": "Odisha",
+        "elevation_m": 3,
+        "dist_to_coast_km": 1.5,
+        "capacity": "200 beds, 16 ICU, Hyperbaric trauma center",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "RCC Frame - Industrial Grade",
+        "age_years": 22,
+        "population_served": 280000,
+        "critical_notes": "Dockland proximity exposes hospital to hazardous petrochemical fumes and tidal surge backflow.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-06",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.635,
+          20.281
+        ]
+      },
+      "properties": {
+        "id": "pow-06",
+        "name": "Paradip IOCL Refinery & Bulk Grid 220kV Substation",
+        "type": "power_substation",
+        "district": "Jagatsinghpur",
+        "state": "Odisha",
+        "elevation_m": 4.8,
+        "dist_to_coast_km": 3.2,
+        "capacity": "450 MVA, Mega petrochemical & maritime port feeder",
+        "backup_power": true,
+        "backup_hours": 96,
+        "structure_type": "Enclosed GIS + Heavy Steel Gantries",
+        "age_years": 12,
+        "population_served": 620000,
+        "critical_notes": "Critical power node for chemical refinery safety systems; vulnerable to 200+ km/h wind squalls.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-07",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.438,
+          20.178
+        ]
+      },
+      "properties": {
+        "id": "she-07",
+        "name": "Erasama Super-Cyclone Memorial Shelter & Haven",
+        "type": "cyclone_shelter",
+        "district": "Jagatsinghpur",
+        "state": "Odisha",
+        "elevation_m": 6.2,
+        "dist_to_coast_km": 2.4,
+        "capacity": "3000 persons, high-capacity rooftop helipad",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "Reinforced Concrete Anti-Surge Stilted Haven",
+        "age_years": 16,
+        "population_served": 22000,
+        "critical_notes": "Historic 1999 landfall epicenter; reinforced structure engineered to resist 7m tidal surges.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-09",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.541,
+          20.312
+        ]
+      },
+      "properties": {
+        "id": "hos-09",
+        "name": "Kujang Sub-Divisional Hospital",
+        "type": "hospital",
+        "district": "Jagatsinghpur",
+        "state": "Odisha",
+        "elevation_m": 5.6,
+        "dist_to_coast_km": 12,
+        "capacity": "100 beds, 8 Emergency ICU",
+        "backup_power": true,
+        "backup_hours": 24,
+        "structure_type": "RCC Frame",
+        "age_years": 25,
+        "population_served": 190000,
+        "critical_notes": "Handles inland evacuee triage along the Cuttack-Paradip expressway corridor.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wat-05",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.689,
+          20.295
+        ]
+      },
+      "properties": {
+        "id": "wat-05",
+        "name": "Mahanadi Estuary Floodgate & High-Discharge Pumping Sluice",
+        "type": "water_facility",
+        "district": "Jagatsinghpur",
+        "state": "Odisha",
+        "elevation_m": 2.2,
+        "dist_to_coast_km": 0.9,
+        "capacity": "120 cusecs tidal drainage sluice & pump station",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Heavy Hydraulic Sluice Complex",
+        "age_years": 18,
+        "population_served": 340000,
+        "critical_notes": "Prevents storm surge from penetrating Mahanadi delta farmlands; high sea overtopping hazard.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "roa-05",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.582,
+          20.274
+        ]
+      },
+      "properties": {
+        "id": "roa-05",
+        "name": "Paradip Port Evacuation Expressway (NH-53 Lifeline)",
+        "type": "road_lifeline",
+        "district": "Jagatsinghpur",
+        "state": "Odisha",
+        "elevation_m": 4.8,
+        "dist_to_coast_km": 6.2,
+        "capacity": "4-lane divided freight corridor, 40,000 PCU/day",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Elevated Highway Embankment with Culverts",
+        "age_years": 15,
+        "population_served": 780000,
+        "critical_notes": "Primary heavy logistic corridor for NDRF convoy dispatch into Paradip harbor.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.422,
+          20.501
+        ]
+      },
+      "properties": {
+        "id": "hos-10",
+        "name": "Kendrapara District Headquarters Hospital (DHH)",
+        "type": "hospital",
+        "district": "Kendrapara",
+        "state": "Odisha",
+        "elevation_m": 7.2,
+        "dist_to_coast_km": 32,
+        "capacity": "350 beds, 18 ICU, Blood bank",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "RCC Frame - Retrofitted",
+        "age_years": 28,
+        "population_served": 550000,
+        "critical_notes": "Regional hospital receiving severe casualties from tidal delta blocks.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-08",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.721,
+          20.582
+        ]
+      },
+      "properties": {
+        "id": "she-08",
+        "name": "Rajnagar Coastal Cyclone Shelter & Mangrove Ranger Station",
+        "type": "cyclone_shelter",
+        "district": "Kendrapara",
+        "state": "Odisha",
+        "elevation_m": 4.1,
+        "dist_to_coast_km": 3.8,
+        "capacity": "1800 persons, boat slipway",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Engineered Cyclone Shelter with Mangrove Buffer",
+        "age_years": 9,
+        "population_served": 11000,
+        "critical_notes": "Sheltered by Bhitarkanika mangrove buffer, yet vulnerable to Brahmani-Baitarani surge.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-09",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.611,
+          20.432
+        ]
+      },
+      "properties": {
+        "id": "she-09",
+        "name": "Mahakalapada Riverine Cyclone Shelter Haven",
+        "type": "cyclone_shelter",
+        "district": "Kendrapara",
+        "state": "Odisha",
+        "elevation_m": 3.8,
+        "dist_to_coast_km": 4.5,
+        "capacity": "2200 persons, community kitchen",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "Stilted RCC Haven",
+        "age_years": 11,
+        "population_served": 15000,
+        "critical_notes": "Surrounded by estuarine distributaries; isolated during high spring tide deluge.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-07",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.562,
+          20.574
+        ]
+      },
+      "properties": {
+        "id": "pow-07",
+        "name": "Pattamundai 132/33kV Grid Transmission Substation",
+        "type": "power_substation",
+        "district": "Kendrapara",
+        "state": "Odisha",
+        "elevation_m": 6.5,
+        "dist_to_coast_km": 18,
+        "capacity": "120 MVA, Powers Brahmani basin emergency pump stations",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Steel Gantry Substation",
+        "age_years": 21,
+        "population_served": 310000,
+        "critical_notes": "Substation transformers lack flood bunds; high probability of silt fouling during inundation.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tel-05",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.782,
+          20.334
+        ]
+      },
+      "properties": {
+        "id": "tel-05",
+        "name": "Batighar False Point Lighthouse & Marine Telecom Tower",
+        "type": "telecom_tower",
+        "district": "Kendrapara",
+        "state": "Odisha",
+        "elevation_m": 5.2,
+        "dist_to_coast_km": 0.5,
+        "capacity": "Coastal VHF radio station & maritime safety radar relay",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "Historic Masonry + Modern Communications Tower",
+        "age_years": 35,
+        "population_served": 45000,
+        "critical_notes": "Frontline navigational and radar beacon at the mouth of Mahanadi estuary.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.512,
+          21.056
+        ]
+      },
+      "properties": {
+        "id": "hos-11",
+        "name": "Bhadrak District Headquarters Hospital",
+        "type": "hospital",
+        "district": "Bhadrak",
+        "state": "Odisha",
+        "elevation_m": 11,
+        "dist_to_coast_km": 34,
+        "capacity": "380 beds, 20 ICU, Trauma surgery unit",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Frame - Modern Wing",
+        "age_years": 18,
+        "population_served": 720000,
+        "critical_notes": "High inland elevation; primary referral center for Chandbali and Dhamra coastal belts.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.741,
+          20.781
+        ]
+      },
+      "properties": {
+        "id": "she-10",
+        "name": "Chandbali Riverine Cyclone Shelter & Ferry Terminal Haven",
+        "type": "cyclone_shelter",
+        "district": "Bhadrak",
+        "state": "Odisha",
+        "elevation_m": 4.8,
+        "dist_to_coast_km": 14,
+        "capacity": "2400 persons, inland water transport jetty",
+        "backup_power": true,
+        "backup_hours": 40,
+        "structure_type": "Multi-Storeyed RCC Cyclone Shelter",
+        "age_years": 13,
+        "population_served": 18000,
+        "critical_notes": "Baitarani river confluence; essential staging point for boat rescue teams heading seaward.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wat-06",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.952,
+          20.804
+        ]
+      },
+      "properties": {
+        "id": "wat-06",
+        "name": "Dhamra LNG Terminal Emergency Potable Plant & Fire Water Reserve",
+        "type": "water_facility",
+        "district": "Bhadrak",
+        "state": "Odisha",
+        "elevation_m": 3.5,
+        "dist_to_coast_km": 0.9,
+        "capacity": "25,000 cu.m emergency fire water storage & treatment",
+        "backup_power": true,
+        "backup_hours": 96,
+        "structure_type": "Heavy Industrial Reinforced Tanks",
+        "age_years": 6,
+        "population_served": 120000,
+        "critical_notes": "Safeguards strategic LNG degasification plant against industrial fire during severe storms.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.932,
+          21.492
+        ]
+      },
+      "properties": {
+        "id": "hos-12",
+        "name": "Fakir Mohan Medical College & Hospital Balasore",
+        "type": "hospital",
+        "district": "Balasore",
+        "state": "Odisha",
+        "elevation_m": 16,
+        "dist_to_coast_km": 18,
+        "capacity": "650 beds, 45 ICU, Regional burns unit",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "RCC Frame - Contemporary Institutional",
+        "age_years": 8,
+        "population_served": 1250000,
+        "critical_notes": "State-of-the-art regional apex medical facility servicing northern Odisha coast.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.014,
+          21.468
+        ]
+      },
+      "properties": {
+        "id": "she-11",
+        "name": "Chandipur Integrated Missile Range Defense Support Shelter",
+        "type": "cyclone_shelter",
+        "district": "Balasore",
+        "state": "Odisha",
+        "elevation_m": 5.8,
+        "dist_to_coast_km": 1.1,
+        "capacity": "1500 personnel & local fishing population",
+        "backup_power": true,
+        "backup_hours": 96,
+        "structure_type": "Blast-Resistant Concrete Hardened Shelter",
+        "age_years": 14,
+        "population_served": 15000,
+        "critical_notes": "Hardened anti-cyclone shelter located near the wide intertidal sand flats of Chandipur.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-08",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          86.872,
+          21.523
+        ]
+      },
+      "properties": {
+        "id": "pow-08",
+        "name": "Remuna 220/132kV Power Grid Transmission Hub",
+        "type": "power_substation",
+        "district": "Balasore",
+        "state": "Odisha",
+        "elevation_m": 19.5,
+        "dist_to_coast_km": 22,
+        "capacity": "320 MVA, Feeds northern defense & rail corridors",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Heavy Outdoor Air-Insulated Switchyard",
+        "age_years": 23,
+        "population_served": 640000,
+        "critical_notes": "Interconnected with West Bengal state grid; vital for power restoration post-landfall.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.792,
+          19.314
+        ]
+      },
+      "properties": {
+        "id": "hos-13",
+        "name": "MKCG Government Medical College & Hospital Berhampur",
+        "type": "hospital",
+        "district": "Ganjam",
+        "state": "Odisha",
+        "elevation_m": 28,
+        "dist_to_coast_km": 14.5,
+        "capacity": "1100 beds, 75 ICU, Regional trauma apex",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "RCC Frame - Campus Complex",
+        "age_years": 55,
+        "population_served": 2800000,
+        "critical_notes": "Apex hospital for southern Odisha and northern Andhra Pradesh border districts.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-09",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.972,
+          19.308
+        ]
+      },
+      "properties": {
+        "id": "pow-09",
+        "name": "Gopalpur Port Marine Terminal 132/33kV Substation",
+        "type": "power_substation",
+        "district": "Ganjam",
+        "state": "Odisha",
+        "elevation_m": 4.5,
+        "dist_to_coast_km": 0.9,
+        "capacity": "150 MVA, Deepwater port cargo cranes & conveyor lines",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "Coastal Heavy Steel Substation",
+        "age_years": 12,
+        "population_served": 140000,
+        "critical_notes": "Direct open sea frontage at Gopalpur; high vulnerability to Cat-4/5 wave overtopping and sand scour.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-14",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.989,
+          19.356
+        ]
+      },
+      "properties": {
+        "id": "hos-14",
+        "name": "Chatrapur Sub-Divisional Hospital & Emergency Cell",
+        "type": "hospital",
+        "district": "Ganjam",
+        "state": "Odisha",
+        "elevation_m": 14,
+        "dist_to_coast_km": 3.5,
+        "capacity": "150 beds, 12 ICU, District emergency command",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "RCC Frame - Government Standard",
+        "age_years": 26,
+        "population_served": 310000,
+        "critical_notes": "Directly adjacent to District Collectorate Emergency Operations Center (EOC).",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.952,
+          19.284
+        ]
+      },
+      "properties": {
+        "id": "she-12",
+        "name": "Aryapalli Sea Beach Cyclone Shelter Haven",
+        "type": "cyclone_shelter",
+        "district": "Ganjam",
+        "state": "Odisha",
+        "elevation_m": 6,
+        "dist_to_coast_km": 0.7,
+        "capacity": "2000 persons, fishing gear warehouse on stilt floor",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Stilted Anti-Surge Haven",
+        "age_years": 11,
+        "population_served": 13000,
+        "critical_notes": "Ground zero for 2013 Phailin landfall; designed to withstand sustained 220 km/h wind gusts.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "roa-06",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          85.042,
+          19.378
+        ]
+      },
+      "properties": {
+        "id": "roa-06",
+        "name": "Rushikulya River Sea Mouth Evacuation Bridge (NH-16)",
+        "type": "road_lifeline",
+        "district": "Ganjam",
+        "state": "Odisha",
+        "elevation_m": 5.2,
+        "dist_to_coast_km": 2.1,
+        "capacity": "6-lane Golden Quadrilateral Highway bridge, 850m span",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Pre-stressed Concrete Box Girder",
+        "age_years": 18,
+        "population_served": 1800000,
+        "critical_notes": "National lifeline connecting Chennai to Kolkata; olive ridley rookery estuary; flash flood surge zone.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wat-07",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.756,
+          19.298
+        ]
+      },
+      "properties": {
+        "id": "wat-07",
+        "name": "Berhampur City Master Water Treatment Plant (Dakhinpur)",
+        "type": "water_facility",
+        "district": "Ganjam",
+        "state": "Odisha",
+        "elevation_m": 32,
+        "dist_to_coast_km": 18,
+        "capacity": "64 MLD Rapid sand filtration & chlorination plant",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Heavy Reinforced Concrete Reservoirs",
+        "age_years": 22,
+        "population_served": 460000,
+        "critical_notes": "Supplies 100% of municipal drinking water; power cut disrupts water supply across city shelters.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-15",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.304,
+          17.708
+        ]
+      },
+      "properties": {
+        "id": "hos-15",
+        "name": "King George Hospital (KGH) Super-Specialty Trauma Center",
+        "type": "hospital",
+        "district": "Visakhapatnam",
+        "state": "Andhra Pradesh",
+        "elevation_m": 12,
+        "dist_to_coast_km": 1.1,
+        "capacity": "1250 beds, 90 ICU, Coastal trauma center",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "RCC Frame - Older and Modern Mixed Wings",
+        "age_years": 85,
+        "population_served": 3100000,
+        "critical_notes": "Historic tertiary care apex for coastal Andhra; basement storage vulnerable to sea spray runoff.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.284,
+          17.694
+        ]
+      },
+      "properties": {
+        "id": "pow-10",
+        "name": "Visakhapatnam Port Authority 220/33kV Main Substation",
+        "type": "power_substation",
+        "district": "Visakhapatnam",
+        "state": "Odisha",
+        "elevation_m": 4.2,
+        "dist_to_coast_km": 0.8,
+        "capacity": "300 MVA, Powers naval harbor and outer harbor docks",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Gas Insulated Switchgear (GIS)",
+        "age_years": 15,
+        "population_served": 850000,
+        "critical_notes": "Harbor marine berth feeder; high corrosion and saline mist exposure during severe storms.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tel-06",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.339,
+          17.749
+        ]
+      },
+      "properties": {
+        "id": "tel-06",
+        "name": "Kailasagiri Coastal Telecom & Radar Transmission Mast",
+        "type": "telecom_tower",
+        "district": "Visakhapatnam",
+        "state": "Andhra Pradesh",
+        "elevation_m": 172,
+        "dist_to_coast_km": 0.9,
+        "capacity": "120m lattice mast, Doppler Weather Radar & Doordarshan array",
+        "backup_power": true,
+        "backup_hours": 96,
+        "structure_type": "Heavy Lattice Mast on Hilltop",
+        "age_years": 28,
+        "population_served": 2500000,
+        "critical_notes": "Extremely high wind exposure atop coastal cliff; recorded 240 km/h gusts during Cyclone Hudhud.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.454,
+          17.892
+        ]
+      },
+      "properties": {
+        "id": "she-13",
+        "name": "Bheemunipatnam (Bheemili) Heritage Coastal Cyclone Shelter",
+        "type": "cyclone_shelter",
+        "district": "Visakhapatnam",
+        "state": "Andhra Pradesh",
+        "elevation_m": 7.2,
+        "dist_to_coast_km": 1.2,
+        "capacity": "1800 persons, community kitchen and first aid clinic",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "Engineered RCC Haven",
+        "age_years": 17,
+        "population_served": 16000,
+        "critical_notes": "Protects traditional fishing hamlet at the mouth of Gosthani river.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-16",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          83.896,
+          18.298
+        ]
+      },
+      "properties": {
+        "id": "hos-16",
+        "name": "Srikakulam Government RIMS Medical College Hospital",
+        "type": "hospital",
+        "district": "Srikakulam",
+        "state": "Andhra Pradesh",
+        "elevation_m": 24,
+        "dist_to_coast_km": 15,
+        "capacity": "600 beds, 35 ICU, Dialysis unit",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Frame - Contemporary",
+        "age_years": 16,
+        "population_served": 1400000,
+        "critical_notes": "Regional apex hospital along Nagavali river basin; primary trauma center during Cyclone Titli.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-14",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.129,
+          18.334
+        ]
+      },
+      "properties": {
+        "id": "she-14",
+        "name": "Kalingapatnam Lighthouse Coastal Emergency Shelter",
+        "type": "cyclone_shelter",
+        "district": "Srikakulam",
+        "state": "Andhra Pradesh",
+        "elevation_m": 5.8,
+        "dist_to_coast_km": 0.6,
+        "capacity": "2200 persons, marine radio room",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Reinforced Concrete Anti-Surge Stilted Haven",
+        "age_years": 12,
+        "population_served": 15000,
+        "critical_notes": "Vamshadhara river sea mouth; severe storm surge funneling hazard.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          84.412,
+          18.771
+        ]
+      },
+      "properties": {
+        "id": "pow-11",
+        "name": "Palasa 132/33kV Power Grid Substation",
+        "type": "power_substation",
+        "district": "Srikakulam",
+        "state": "Andhra Pradesh",
+        "elevation_m": 38,
+        "dist_to_coast_km": 12,
+        "capacity": "160 MVA, Feeds northern Andhra agro-processing & rail lines",
+        "backup_power": false,
+        "backup_hours": 0,
+        "structure_type": "Steel Gantry Substation",
+        "age_years": 26,
+        "population_served": 380000,
+        "critical_notes": "Vulnerable to tower collapse under microburst downburst winds.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-17",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          81.134,
+          16.182
+        ]
+      },
+      "properties": {
+        "id": "hos-17",
+        "name": "Machilipatnam Coastal District Headquarters Hospital",
+        "type": "hospital",
+        "district": "Krishna",
+        "state": "Andhra Pradesh",
+        "elevation_m": 4.8,
+        "dist_to_coast_km": 4.2,
+        "capacity": "400 beds, 25 ICU, Snakebite & trauma emergency",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Frame - Elevated",
+        "age_years": 30,
+        "population_served": 620000,
+        "critical_notes": "Low-lying Krishna delta; historic 1977 storm surge disaster zone; flood walls required.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-15",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.642,
+          15.912
+        ]
+      },
+      "properties": {
+        "id": "she-15",
+        "name": "Nizampatnam Harbor Cyclone Haven & Ice Plant Relief Post",
+        "type": "cyclone_shelter",
+        "district": "Bapatla",
+        "state": "Andhra Pradesh",
+        "elevation_m": 3.2,
+        "dist_to_coast_km": 1.4,
+        "capacity": "2800 persons, cold storage for medical supplies",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "Engineered Anti-Tidal Haven",
+        "age_years": 14,
+        "population_served": 24000,
+        "critical_notes": "Deep coastal creek setting; susceptible to 3.5m surge cutting off road egress.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.124,
+          14.254
+        ]
+      },
+      "properties": {
+        "id": "pow-12",
+        "name": "Krishnapatnam Port 400kV Bulk Thermal Power Switchyard",
+        "type": "power_substation",
+        "district": "Nellore",
+        "state": "Andhra Pradesh",
+        "elevation_m": 6.5,
+        "dist_to_coast_km": 2.2,
+        "capacity": "800 MVA, Mega thermal power transmission node",
+        "backup_power": true,
+        "backup_hours": 96,
+        "structure_type": "Gas Insulated Enclosed Switchyard",
+        "age_years": 11,
+        "population_served": 1200000,
+        "critical_notes": "Major southern power grid feed; transmission line galloping risk under gale conditions.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-16",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.231,
+          13.722
+        ]
+      },
+      "properties": {
+        "id": "she-16",
+        "name": "Sriharikota ISRO Space Port Emergency Safety Center",
+        "type": "cyclone_shelter",
+        "district": "Nellore",
+        "state": "Andhra Pradesh",
+        "elevation_m": 8.5,
+        "dist_to_coast_km": 1.8,
+        "capacity": "1500 personnel, hardened bunker with autonomous filtration",
+        "backup_power": true,
+        "backup_hours": 120,
+        "structure_type": "Hardened Blast & Surge Resistant Monolithic Bunker",
+        "age_years": 18,
+        "population_served": 12000,
+        "critical_notes": "Barrier island between Pulicat Lake and Bay of Bengal; highest national infrastructure priority.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-18",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.521,
+          21.628
+        ]
+      },
+      "properties": {
+        "id": "hos-18",
+        "name": "Digha State General Coastal Hospital",
+        "type": "hospital",
+        "district": "Purba Medinipur",
+        "state": "West Bengal",
+        "elevation_m": 4.8,
+        "dist_to_coast_km": 0.7,
+        "capacity": "250 beds, 18 ICU, Emergency trauma",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Frame - Coastal Spec",
+        "age_years": 20,
+        "population_served": 350000,
+        "critical_notes": "Directly exposed to high waves at Digha seawall; ground level drainage pumps critical.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-17",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          87.508,
+          21.624
+        ]
+      },
+      "properties": {
+        "id": "she-17",
+        "name": "Digha Sea Beach Multi-Purpose Disaster Refuge Haven",
+        "type": "cyclone_shelter",
+        "district": "Purba Medinipur",
+        "state": "West Bengal",
+        "elevation_m": 6.5,
+        "dist_to_coast_km": 0.5,
+        "capacity": "3200 persons, helipad and emergency supply depot",
+        "backup_power": true,
+        "backup_hours": 60,
+        "structure_type": "Elevated 3-Tier Stilted Haven",
+        "age_years": 10,
+        "population_served": 28000,
+        "critical_notes": "Equipped with heavy storm shutters and high-capacity desalinator.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.082,
+          22.032
+        ]
+      },
+      "properties": {
+        "id": "pow-13",
+        "name": "Haldia Petrochemical & Port 400/220kV Bulk Substation",
+        "type": "power_substation",
+        "district": "Purba Medinipur",
+        "state": "West Bengal",
+        "elevation_m": 5.2,
+        "dist_to_coast_km": 6.8,
+        "capacity": "600 MVA, Feeds Haldia industrial port & refineries",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "GIS Enclosed Switchyard",
+        "age_years": 16,
+        "population_served": 950000,
+        "critical_notes": "Hooghly river confluence; storm surge overtopping can submerge auxiliary control room.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-18",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.072,
+          21.652
+        ]
+      },
+      "properties": {
+        "id": "she-18",
+        "name": "Sagar Island (Gangasagar) High-Capacity Cyclone Haven",
+        "type": "cyclone_shelter",
+        "district": "South 24 Parganas",
+        "state": "West Bengal",
+        "elevation_m": 5,
+        "dist_to_coast_km": 1.1,
+        "capacity": "4000 persons, massive pilgrim disaster shelter",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "Engineered Multi-Storeyed Stilted Cyclone Haven",
+        "age_years": 12,
+        "population_served": 45000,
+        "critical_notes": "Located on isolated island at confluence of Ganges (Hooghly) and Bay of Bengal; no bridge connection.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-19",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.188,
+          21.874
+        ]
+      },
+      "properties": {
+        "id": "hos-19",
+        "name": "Kakdwip Sub-Divisional Hospital & Emergency Cell",
+        "type": "hospital",
+        "district": "South 24 Parganas",
+        "state": "West Bengal",
+        "elevation_m": 6.2,
+        "dist_to_coast_km": 18,
+        "capacity": "300 beds, 16 ICU, Waterborne disease treatment",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "RCC Frame",
+        "age_years": 24,
+        "population_served": 580000,
+        "critical_notes": "Triage gateway for patients evacuated across the Muriganga river by disaster ferry.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-19",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.804,
+          22.164
+        ]
+      },
+      "properties": {
+        "id": "she-19",
+        "name": "Gosaba Sundarbans Estuarine Cyclone Shelter & Solar Microgrid",
+        "type": "cyclone_shelter",
+        "district": "South 24 Parganas",
+        "state": "West Bengal",
+        "elevation_m": 4.2,
+        "dist_to_coast_km": 12,
+        "capacity": "2000 persons, autonomous solar microgrid and RO plant",
+        "backup_power": true,
+        "backup_hours": 96,
+        "structure_type": "Stilted Anti-Surge Concrete Haven",
+        "age_years": 8,
+        "population_served": 18000,
+        "critical_notes": "Deep in Sundarbans mangrove mangrove delta; island vulnerable to earthen embankment breaches.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "hos-20",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.278,
+          13.081
+        ]
+      },
+      "properties": {
+        "id": "hos-20",
+        "name": "Rajiv Gandhi Government General Hospital (RGGGH)",
+        "type": "hospital",
+        "district": "Chennai",
+        "state": "Tamil Nadu",
+        "elevation_m": 7.5,
+        "dist_to_coast_km": 1.8,
+        "capacity": "2700 beds, 220 ICU, State apex trauma",
+        "backup_power": true,
+        "backup_hours": 72,
+        "structure_type": "RCC Frame - Multi-Tower Complex",
+        "age_years": 48,
+        "population_served": 4500000,
+        "critical_notes": "Tamil Nadu supreme trauma apex; Cooum river overflow adjacent; elevated oxygen plants.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "pow-14",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.324,
+          13.256
+        ]
+      },
+      "properties": {
+        "id": "pow-14",
+        "name": "Ennore Thermal Power Station & Kamarajar Port 400kV Yard",
+        "type": "power_substation",
+        "district": "Tiruvallur",
+        "state": "Tamil Nadu",
+        "elevation_m": 3.1,
+        "dist_to_coast_km": 1.2,
+        "capacity": "600 MVA, Powers North Chennai and outer industrial corridors",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Outdoor Switchyard Air-Insulated",
+        "age_years": 32,
+        "population_served": 1100000,
+        "critical_notes": "Ennore Creek storm surge backflow hazard; ash pond overflow risk during cyclonic rainfall.",
+        "flood_barrier": false
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "she-20",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.318,
+          13.418
+        ]
+      },
+      "properties": {
+        "id": "she-20",
+        "name": "Pulicat Lagoon Marine Rescue & Coastal Cyclone Shelter",
+        "type": "cyclone_shelter",
+        "district": "Tiruvallur",
+        "state": "Tamil Nadu",
+        "elevation_m": 4.8,
+        "dist_to_coast_km": 0.9,
+        "capacity": "2000 persons, boat slipway",
+        "backup_power": true,
+        "backup_hours": 36,
+        "structure_type": "Reinforced Concrete Haven",
+        "age_years": 15,
+        "population_served": 16000,
+        "critical_notes": "Protects lagoon spit fishing villages cut off when sea mouth breaches.",
+        "flood_barrier": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wat-08",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.258,
+          13.012
+        ]
+      },
+      "properties": {
+        "id": "wat-08",
+        "name": "Adyar Estuary Storm Surge Floodgate & Water Control Complex",
+        "type": "water_facility",
+        "district": "Chennai",
+        "state": "Tamil Nadu",
+        "elevation_m": 3.2,
+        "dist_to_coast_km": 0.7,
+        "capacity": "200 cusecs tidal barrage & automated sluice system",
+        "backup_power": true,
+        "backup_hours": 48,
+        "structure_type": "Automated Hydraulic Barrage",
+        "age_years": 12,
+        "population_served": 1800000,
+        "critical_notes": "Critical drainage check preventing Bay of Bengal surge from backing up into South Chennai neighborhoods.",
+        "flood_barrier": true
+      }
+    }
+  ]
+}

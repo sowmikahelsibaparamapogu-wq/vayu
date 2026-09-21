@@ -1,0 +1,221 @@
+[
+  {
+    "id": "fani-2019",
+    "name": "Cyclone Fani (Extremely Severe)",
+    "basin": "North Indian Ocean (Bay of Bengal)",
+    "season": "May 2019",
+    "category": "Extremely Severe Cyclonic Storm (Cat 4 equiv.)",
+    "landfallRegion": "Puri Coast, Odisha",
+    "current": {
+      "lat": 18.4,
+      "lon": 85.2,
+      "maxWindKmh": 215,
+      "centralPressureHpa": 932,
+      "forwardSpeedKmh": 16,
+      "headingDeg": 28,
+      "radiusMaxWindKm": 32,
+      "gustsKmh": 250,
+      "timestamp": "T-0h (Pre-Landfall Warning)"
+    },
+    "track": [
+      {
+        "timeOffsetHours": 0,
+        "label": "T-0h (Current)",
+        "lat": 18.4,
+        "lon": 85.2,
+        "maxWindKmh": 215,
+        "centralPressureHpa": 932,
+        "category": "Extremely Severe Cyclonic Storm",
+        "radiusKm": 40
+      },
+      {
+        "timeOffsetHours": 12,
+        "label": "+12h (Landfall Window)",
+        "lat": 19.8,
+        "lon": 85.85,
+        "maxWindKmh": 205,
+        "centralPressureHpa": 937,
+        "category": "Extremely Severe Cyclonic Storm",
+        "radiusKm": 65
+      },
+      {
+        "timeOffsetHours": 24,
+        "label": "+24h (Bhubaneswar/Cuttack)",
+        "lat": 20.3,
+        "lon": 85.82,
+        "maxWindKmh": 160,
+        "centralPressureHpa": 955,
+        "category": "Very Severe Cyclonic Storm",
+        "radiusKm": 105
+      },
+      {
+        "timeOffsetHours": 48,
+        "label": "+48h (North Odisha/Bengal)",
+        "lat": 21.8,
+        "lon": 86.9,
+        "maxWindKmh": 105,
+        "centralPressureHpa": 982,
+        "category": "Severe Cyclonic Storm",
+        "radiusKm": 150
+      },
+      {
+        "timeOffsetHours": 72,
+        "label": "+72h (Inland Dissipation)",
+        "lat": 23.4,
+        "lon": 88.5,
+        "maxWindKmh": 60,
+        "centralPressureHpa": 998,
+        "category": "Deep Depression",
+        "radiusKm": 210
+      }
+    ],
+    "description": "Historical analog of 2019's monstrous storm that struck the Puri coast with 200+ km/h gales and 4.5m storm surge, paralyzing power transmission and telecommunications.",
+    "affectedDistricts": ["Puri", "Khordha", "Cuttack", "Jagatsinghpur", "Kendrapara"]
+  },
+  {
+    "id": "michaung-2023",
+    "name": "Cyclone Michaung (Severe Storm)",
+    "basin": "North Indian Ocean (Bay of Bengal)",
+    "season": "December 2023",
+    "category": "Severe Cyclonic Storm",
+    "landfallRegion": "Bapatla / South Andhra & North TN Coast",
+    "current": {
+      "lat": 13.5,
+      "lon": 80.4,
+      "maxWindKmh": 110,
+      "centralPressureHpa": 984,
+      "forwardSpeedKmh": 11,
+      "headingDeg": 345,
+      "radiusMaxWindKm": 45,
+      "gustsKmh": 135,
+      "timestamp": "T-0h (Coastal Grazing Phase)"
+    },
+    "track": [
+      {
+        "timeOffsetHours": 0,
+        "label": "T-0h (Off Chennai Coast)",
+        "lat": 13.5,
+        "lon": 80.4,
+        "maxWindKmh": 110,
+        "centralPressureHpa": 984,
+        "category": "Severe Cyclonic Storm",
+        "radiusKm": 50
+      },
+      {
+        "timeOffsetHours": 12,
+        "label": "+12h (Sriharikota / Pulicat)",
+        "lat": 14.1,
+        "lon": 80.3,
+        "maxWindKmh": 110,
+        "centralPressureHpa": 982,
+        "category": "Severe Cyclonic Storm",
+        "radiusKm": 75
+      },
+      {
+        "timeOffsetHours": 24,
+        "label": "+24h (Nellore Coast)",
+        "lat": 14.8,
+        "lon": 80.2,
+        "maxWindKmh": 100,
+        "centralPressureHpa": 988,
+        "category": "Severe Cyclonic Storm",
+        "radiusKm": 115
+      },
+      {
+        "timeOffsetHours": 48,
+        "label": "+48h (Bapatla Landfall)",
+        "lat": 15.9,
+        "lon": 80.45,
+        "maxWindKmh": 90,
+        "centralPressureHpa": 992,
+        "category": "Cyclonic Storm",
+        "radiusKm": 160
+      },
+      {
+        "timeOffsetHours": 72,
+        "label": "+72h (Telangana Inland)",
+        "lat": 17.5,
+        "lon": 80.8,
+        "maxWindKmh": 50,
+        "centralPressureHpa": 1002,
+        "category": "Depression",
+        "radiusKm": 220
+      }
+    ],
+    "description": "Characterized by slow forward motion near Chennai producing 450mm hyper-localized extreme rainfall, severe urban flash-flooding, power blackouts, and airport runway inundation.",
+    "affectedDistricts": ["Chennai", "Tiruvallur", "Kanchipuram", "Nellore", "Bapatla"]
+  },
+  {
+    "id": "amphan-2020",
+    "name": "Cyclone Amphan (Super Cyclone Track)",
+    "basin": "North Indian Ocean (Bay of Bengal)",
+    "season": "May 2020",
+    "category": "Super Cyclonic Storm",
+    "landfallRegion": "Sundarbans / Digha / Balasore Border",
+    "current": {
+      "lat": 19.5,
+      "lon": 86.8,
+      "maxWindKmh": 195,
+      "centralPressureHpa": 940,
+      "forwardSpeedKmh": 22,
+      "headingDeg": 18,
+      "radiusMaxWindKm": 38,
+      "gustsKmh": 230,
+      "timestamp": "T-0h (High-Speed Northbound)"
+    },
+    "track": [
+      {
+        "timeOffsetHours": 0,
+        "label": "T-0h (Central Bay)",
+        "lat": 19.5,
+        "lon": 86.8,
+        "maxWindKmh": 195,
+        "centralPressureHpa": 940,
+        "category": "Super Cyclonic Storm",
+        "radiusKm": 45
+      },
+      {
+        "timeOffsetHours": 12,
+        "label": "+12h (Bhadrak / Balasore Coast)",
+        "lat": 20.8,
+        "lon": 87.4,
+        "maxWindKmh": 185,
+        "centralPressureHpa": 946,
+        "category": "Extremely Severe Cyclonic Storm",
+        "radiusKm": 80
+      },
+      {
+        "timeOffsetHours": 24,
+        "label": "+24h (Sundarbans Landfall)",
+        "lat": 21.7,
+        "lon": 88.3,
+        "maxWindKmh": 165,
+        "centralPressureHpa": 956,
+        "category": "Very Severe Cyclonic Storm",
+        "radiusKm": 120
+      },
+      {
+        "timeOffsetHours": 48,
+        "label": "+48h (Kolkata / North 24 Parganas)",
+        "lat": 23.1,
+        "lon": 88.9,
+        "maxWindKmh": 115,
+        "centralPressureHpa": 978,
+        "category": "Severe Cyclonic Storm",
+        "radiusKm": 170
+      },
+      {
+        "timeOffsetHours": 72,
+        "label": "+72h (Bangladesh Dissipation)",
+        "lat": 24.8,
+        "lon": 89.6,
+        "maxWindKmh": 55,
+        "centralPressureHpa": 1000,
+        "category": "Deep Depression",
+        "radiusKm": 230
+      }
+    ],
+    "description": "Massive storm surge and wind swathe crossing the sensitive Sundarbans biosphere and high-density coastal settlements with extensive tidal embankment breaches.",
+    "affectedDistricts": ["Balasore", "Bhadrak", "East Medinipur", "South 24 Parganas", "Kolkata"]
+  }
+]

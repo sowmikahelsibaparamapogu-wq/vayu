@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------
+   PRINT-FRIENDLY STYLESHEET FOR DISASTER MANAGERS
+   ---------------------------------------------------- */
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  /* Page Geometry & Color fidelity */
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 9.5pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Hide screen chrome, navigation, buttons, selects, and interactive toggles */
+  nav,
+  header,
+  footer,
+  aside,
+  button,
+  select,
+  input,
+  .no-print,
+  .print-hidden,
+  [role="tablist"],
+  .leaflet-control-container,
+  .fixed,
+  .sticky {
+    display: none !important;
+  }
+
+  /* Display elements marked for print only */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Reset layout constraints for paper flow */
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Card and section print styling */
+  .print-card {
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Table styling for print */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 8pt !important;
+  }
+
+  th {
+    background-color: #0c4a8a !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    padding: 6px 8px !important;
+    border: 1px solid #0c4a8a !important;
+  }
+
+  td {
+    padding: 5px 8px !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Avoid page breaks inside key report blocks */
+  .print-avoid-break {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* SVG / Recharts scaling in print */
+  .recharts-responsive-container,
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
