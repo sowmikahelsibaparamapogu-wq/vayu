@@ -95,7 +95,7 @@ export default function App() {
             email: currentUser.email,
             displayName: currentUser.displayName || 'Disaster Commander',
             role: 'DISASTER_COMMANDER',
-            lastLogin: new Date().toISOString()
+            updatedAt: new Date().toISOString()
           },
           { merge: true }
         ).catch((err) => console.warn('Could not sync user profile:', err));
