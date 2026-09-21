@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { CycloneScenario } from '../types.js';
 import { User } from 'firebase/auth';
+import { AppUserProfile } from '../lib/firebase.js';
 
 interface NavbarProps {
   scenarios: CycloneScenario[];
@@ -24,9 +25,10 @@ interface NavbarProps {
   activeView: 'map' | 'priority' | 'summary' | 'chat' | 'persistence';
   setActiveView: (view: 'map' | 'priority' | 'summary' | 'chat' | 'persistence') => void;
   criticalCount: number;
-  user: User | null;
+  user: User | AppUserProfile | null;
   onSignIn: () => void;
   onSignOut: () => void;
+  onOpenDomainHelp?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -40,7 +42,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   criticalCount,
   user,
   onSignIn,
-  onSignOut
+  onSignOut,
+  onOpenDomainHelp
 }) => {
   const currentScenario = scenarios.find((s) => s.id === selectedScenarioId);
 
@@ -194,12 +197,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                   />
                 ) : (
                   <div className="w-5 h-5 rounded-full bg-[#0B5FA5] text-white flex items-center justify-center font-bold text-[10px]">
-                    {user.email?.charAt(0).toUpperCase()}
+                    {user.email?.charAt(0).toUpperCase() || 'U'}
                   </div>
                 )}
-                <span className="font-semibold text-slate-700 hidden lg:inline max-w-[100px] truncate">
+                <span className="font-semibold text-slate-700 hidden lg:inline max-w-[110px] truncate">
                   {user.displayName || user.email?.split('@')[0]}
                 </span>
+                {(user as any)?.isDemo && (
+                  <span className="hidden sm:inline-block px-1.5 py-0.2 rounded text-[9px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                    Coordinator Session
+                  </span>
+                )}
                 <button
                   onClick={onSignOut}
                   className="text-slate-400 hover:text-rose-600 ml-1 p-0.5 transition-colors cursor-pointer"
@@ -209,14 +217,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </button>
               </div>
             ) : (
-              <button
-                id="btn-firebase-signin"
-                onClick={onSignIn}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-white bg-[#0B5FA5] hover:bg-[#0C4A8A] transition-colors shadow-sm cursor-pointer"
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                <span>Google Sign-In</span>
-              </button>
+              <div className="flex items-center gap-1.5">
+                <button
+                  id="btn-firebase-signin"
+                  onClick={onSignIn}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-white bg-[#0B5FA5] hover:bg-[#0C4A8A] transition-colors shadow-sm cursor-pointer"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>Google Sign-In</span>
+                </button>
+              </div>
             )}
 
             {/* Model Info Modal Trigger */}

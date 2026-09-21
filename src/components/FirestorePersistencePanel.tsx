@@ -10,7 +10,10 @@ import {
   Send,
   Building2,
   Clock,
-  LogIn
+  LogIn,
+  UserCheck,
+  Settings,
+  Info
 } from 'lucide-react';
 import {
   collection,
@@ -18,22 +21,29 @@ import {
   onSnapshot,
   setDoc,
   deleteDoc,
-  doc,
-  orderBy,
-  serverTimestamp
+  doc
 } from 'firebase/firestore';
-import { db, signInWithGoogle } from '../lib/firebase.js';
+import { db, signInWithGoogle, handleFirestoreError, AppUserProfile } from '../lib/firebase.js';
 import { User } from 'firebase/auth';
 import { OperationalBookmark, IncidentDirective } from '../types.js';
 
 interface FirestorePersistencePanelProps {
-  user: User | null;
+  user: User | AppUserProfile | null;
   cycloneName: string;
+  onSignIn?: () => void;
+  onOpenDomainHelp?: () => void;
+  onContinueDemo?: () => void;
 }
+
+const LOCAL_STORAGE_BOOKMARKS_KEY = 'vayu_local_bookmarks';
+const LOCAL_STORAGE_DIRECTIVES_KEY = 'vayu_local_directives';
 
 export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps> = ({
   user,
-  cycloneName
+  cycloneName,
+  onSignIn,
+  onOpenDomainHelp,
+  onContinueDemo
 }) => {
   const [bookmarks, setBookmarks] = useState<OperationalBookmark[]>([]);
   const [incidents, setIncidents] = useState<IncidentDirective[]>([]);
@@ -42,6 +52,8 @@ export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps>
   const [newDetails, setNewDetails] = useState('');
   const [saving, setSaving] = useState(false);
 
+  const isDemo = (user as any)?.isDemo;
+
   // 1. Subscribe to User Bookmarks
   useEffect(() => {
     if (!user) {
@@ -49,17 +61,51 @@ export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps>
       return;
     }
 
+    if (isDemo) {
+      try {
+        const raw = localStorage.getItem(LOCAL_STORAGE_BOOKMARKS_KEY);
+        if (raw) {
+          setBookmarks(JSON.parse(raw));
+        } else {
+          // Pre-seed with current storm operational bookmark if empty
+          const sample: OperationalBookmark[] = [
+            {
+              id: 'bm-init-1',
+              userId: user.uid,
+              assetId: 'paradeep-port-hospital',
+              assetName: 'Paradeep Port Trust Hospital',
+              cycloneName,
+              riskTier: 'critical',
+              notes: 'Prioritized facility: ICU backup generator fuel topped up to 48 hrs.',
+              createdAt: new Date().toISOString()
+            }
+          ];
+          setBookmarks(sample);
+          localStorage.setItem(LOCAL_STORAGE_BOOKMARKS_KEY, JSON.stringify(sample));
+        }
+      } catch (err) {
+        console.warn('Local bookmarks read error:', err);
+      }
+      return;
+    }
+
     const bookmarksRef = collection(db, 'users', user.uid, 'bookmarks');
-    const unsub = onSnapshot(bookmarksRef, (snapshot) => {
-      const bList: OperationalBookmark[] = [];
-      snapshot.forEach((docSnap) => {
-        bList.push({ id: docSnap.id, ...(docSnap.data() as any) });
-      });
-      setBookmarks(bList);
-    });
+    const unsub = onSnapshot(
+      bookmarksRef,
+      (snapshot) => {
+        const bList: OperationalBookmark[] = [];
+        snapshot.forEach((docSnap) => {
+          bList.push({ id: docSnap.id, ...(docSnap.data() as any) });
+        });
+        setBookmarks(bList);
+      },
+      (error) => {
+        handleFirestoreError(error, 'list', `users/${user.uid}/bookmarks`);
+      }
+    );
 
     return () => unsub();
-  }, [user]);
+  }, [user, isDemo, cycloneName]);
 
   // 2. Subscribe to Shared Incident Directives
   useEffect(() => {
@@ -68,19 +114,52 @@ export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps>
       return;
     }
 
+    if (isDemo) {
+      try {
+        const raw = localStorage.getItem(LOCAL_STORAGE_DIRECTIVES_KEY);
+        if (raw) {
+          setIncidents(JSON.parse(raw));
+        } else {
+          const sample: IncidentDirective[] = [
+            {
+              id: 'dir-init-1',
+              userId: user.uid,
+              userEmail: user.email || 'coordinator@disaster.gov',
+              title: `Deploy NDRF Team 3 to Paradeep Lifeline Road`,
+              cycloneName,
+              status: 'DISPATCHED',
+              details: 'Pre-position heavy clearing machinery and tree cutters along SH-12.',
+              createdAt: new Date(Date.now() - 3600000).toISOString()
+            }
+          ];
+          setIncidents(sample);
+          localStorage.setItem(LOCAL_STORAGE_DIRECTIVES_KEY, JSON.stringify(sample));
+        }
+      } catch (err) {
+        console.warn('Local directives read error:', err);
+      }
+      return;
+    }
+
     const incidentsRef = collection(db, 'incidents');
-    const unsub = onSnapshot(incidentsRef, (snapshot) => {
-      const iList: IncidentDirective[] = [];
-      snapshot.forEach((docSnap) => {
-        iList.push({ id: docSnap.id, ...(docSnap.data() as any) });
-      });
-      setIncidents(iList);
-    });
+    const unsub = onSnapshot(
+      incidentsRef,
+      (snapshot) => {
+        const iList: IncidentDirective[] = [];
+        snapshot.forEach((docSnap) => {
+          iList.push({ id: docSnap.id, ...(docSnap.data() as any) });
+        });
+        setIncidents(iList);
+      },
+      (error) => {
+        handleFirestoreError(error, 'list', 'incidents');
+      }
+    );
 
     return () => unsub();
-  }, [user]);
+  }, [user, isDemo, cycloneName]);
 
-  // Log new operational directive to Firestore
+  // Log new operational directive
   const handleCreateDirective = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user || !newTitle.trim()) return;
@@ -88,7 +167,7 @@ export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps>
     try {
       setSaving(true);
       const incidentId = `dir-${Date.now()}`;
-      await setDoc(doc(db, 'incidents', incidentId), {
+      const newDirective: IncidentDirective = {
         id: incidentId,
         userId: user.uid,
         userEmail: user.email || 'coordinator@disaster.gov',
@@ -97,11 +176,28 @@ export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps>
         status: 'DISPATCHED',
         details: newDetails.trim() || 'Dispatched for operational ground execution.',
         createdAt: new Date().toISOString()
-      });
+      };
+
+      if (isDemo) {
+        const updated = [newDirective, ...incidents];
+        setIncidents(updated);
+        try {
+          localStorage.setItem(LOCAL_STORAGE_DIRECTIVES_KEY, JSON.stringify(updated));
+        } catch (e) {
+          console.warn('Failed to save to localStorage:', e);
+        }
+      } else {
+        await setDoc(doc(db, 'incidents', incidentId), newDirective);
+      }
+
       setNewTitle('');
       setNewDetails('');
     } catch (err) {
-      console.error('Error logging incident directive:', err);
+      if (!isDemo) {
+        handleFirestoreError(err, 'create', `incidents/${Date.now()}`);
+      } else {
+        console.error('Error logging incident directive:', err);
+      }
     } finally {
       setSaving(false);
     }
@@ -110,18 +206,38 @@ export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps>
   const handleDeleteBookmark = async (bId: string) => {
     if (!user) return;
     try {
-      await deleteDoc(doc(db, 'users', user.uid, 'bookmarks', bId));
+      if (isDemo) {
+        const updated = bookmarks.filter((b) => b.id !== bId);
+        setBookmarks(updated);
+        localStorage.setItem(LOCAL_STORAGE_BOOKMARKS_KEY, JSON.stringify(updated));
+      } else {
+        await deleteDoc(doc(db, 'users', user.uid, 'bookmarks', bId));
+      }
     } catch (err) {
-      console.error('Delete bookmark error:', err);
+      if (!isDemo) {
+        handleFirestoreError(err, 'delete', `users/${user.uid}/bookmarks/${bId}`);
+      } else {
+        console.error('Delete bookmark error:', err);
+      }
     }
   };
 
   const handleDeleteDirective = async (iId: string) => {
     if (!user) return;
     try {
-      await deleteDoc(doc(db, 'incidents', iId));
+      if (isDemo) {
+        const updated = incidents.filter((i) => i.id !== iId);
+        setIncidents(updated);
+        localStorage.setItem(LOCAL_STORAGE_DIRECTIVES_KEY, JSON.stringify(updated));
+      } else {
+        await deleteDoc(doc(db, 'incidents', iId));
+      }
     } catch (err) {
-      console.error('Delete directive error:', err);
+      if (!isDemo) {
+        handleFirestoreError(err, 'delete', `incidents/${iId}`);
+      } else {
+        console.error('Delete directive error:', err);
+      }
     }
   };
 
@@ -134,28 +250,76 @@ export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps>
         <h3 className="font-bold text-slate-800 text-base font-['Plus_Jakarta_Sans',sans-serif]">
           Firestore Operational Persistence
         </h3>
-        <p className="text-xs text-slate-500 max-w-md mx-auto mt-1 mb-5">
-          Sign in with your Google account via Firebase Authentication to persist incident command directives, priority facility bookmarks, and field dispatch notes across devices.
+        <p className="text-xs text-slate-500 max-w-md mx-auto mt-1 mb-5 leading-relaxed">
+          Sign in to persist incident command directives, priority facility bookmarks, and field dispatch notes across devices.
         </p>
-        <button
-          onClick={() => signInWithGoogle()}
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0B5FA5] hover:bg-[#0C4A8A] text-white font-semibold text-xs transition-colors shadow-sm cursor-pointer"
-        >
-          <LogIn className="w-4 h-4" />
-          <span>Sign In with Google</span>
-        </button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button
+            id="btn-persistence-signin-google"
+            onClick={() => (onSignIn ? onSignIn() : signInWithGoogle())}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0B5FA5] hover:bg-[#0C4A8A] text-white font-semibold text-xs transition-colors shadow-sm cursor-pointer"
+          >
+            <LogIn className="w-4 h-4" />
+            <span>Sign In with Google</span>
+          </button>
+          {onContinueDemo && (
+            <button
+              id="btn-persistence-demo-mode"
+              onClick={onContinueDemo}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-semibold text-xs transition-colors shadow-2xs cursor-pointer"
+            >
+              <UserCheck className="w-4 h-4 text-emerald-600" />
+              <span>Continue in Coordinator Mode</span>
+            </button>
+          )}
+        </div>
+        {onOpenDomainHelp && (
+          <div className="mt-4">
+            <button
+              onClick={onOpenDomainHelp}
+              className="text-[11px] text-slate-400 hover:text-[#0B5FA5] inline-flex items-center gap-1 cursor-pointer"
+            >
+              <Info className="w-3.5 h-3.5" />
+              <span>Firebase Domain Authorization Guide</span>
+            </button>
+          </div>
+        )}
       </div>
     );
   }
 
   return (
     <div className="bg-white rounded-2xl border border-sky-100 shadow-sm overflow-hidden flex flex-col">
+      {/* Demo notice banner if applicable */}
+      {isDemo && (
+        <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 flex items-center justify-between text-xs text-amber-900">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span className="font-semibold">
+              Operating as Disaster Commander ({user.email})
+            </span>
+            <span className="hidden sm:inline text-amber-700 text-[11px]">
+              — Local persistence active.
+            </span>
+          </div>
+          {onOpenDomainHelp && (
+            <button
+              onClick={onOpenDomainHelp}
+              className="text-[11px] font-bold text-amber-900 hover:text-amber-950 underline inline-flex items-center gap-1 cursor-pointer"
+            >
+              <Settings className="w-3 h-3" />
+              <span>Authorize Domain in Firebase</span>
+            </button>
+          )}
+        </div>
+      )}
+
       {/* Header */}
       <div className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <FileCheck2 className="w-4 h-4 text-[#0B5FA5]" />
           <h3 className="font-bold text-slate-800 text-xs tracking-tight font-['Plus_Jakarta_Sans',sans-serif]">
-            Firestore Disaster Management Log
+            {isDemo ? 'Emergency Directives & Saved Facilities' : 'Firestore Disaster Management Log'}
           </h3>
         </div>
         <div className="flex items-center space-x-1 bg-white p-0.5 rounded-lg border border-slate-200 text-xs">
@@ -213,7 +377,7 @@ export const FirestorePersistencePanel: React.FC<FirestorePersistencePanelProps>
                   className="px-3.5 py-1.5 rounded-lg bg-[#0B5FA5] hover:bg-[#0C4A8A] text-white text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer disabled:opacity-50"
                 >
                   <Send className="w-3 h-3" />
-                  <span>{saving ? 'Syncing to Firestore...' : 'Dispatch Directive'}</span>
+                  <span>{saving ? 'Syncing...' : 'Dispatch Directive'}</span>
                 </button>
               </div>
             </form>

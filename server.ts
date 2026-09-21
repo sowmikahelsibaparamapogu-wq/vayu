@@ -333,14 +333,14 @@ Format clearly with:
 
         const response = await Promise.race([
           ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt
           }),
-          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('AI generation timed out')), 9000))
+          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('AI generation timed out')), 15000))
         ]);
 
         if (response?.text) {
-          return res.json({ briefing: response.text, source: 'Gemini 2.5 Flash' });
+          return res.json({ briefing: response.text, source: 'Gemini 3.6 Flash' });
         }
       } catch (geminiErr) {
         console.warn('Gemini API call failed, falling back to rule-based synthesis:', geminiErr);
@@ -373,11 +373,11 @@ app.post('/api/chat', async (req, res) => {
     const { messages, taskType, contextData } = req.body || {};
     
     // Choose model prioritizing active responsive endpoints
-    let selectedModel = 'gemini-2.5-flash';
+    let selectedModel = 'gemini-3.6-flash';
     if (taskType === 'fast') {
       selectedModel = 'gemini-3.1-flash-lite';
     } else if (taskType === 'complex') {
-      selectedModel = 'gemini-2.5-flash';
+      selectedModel = 'gemini-3.6-flash';
     }
 
     if (process.env.GEMINI_API_KEY) {
@@ -418,7 +418,7 @@ Guidelines:
               systemInstruction
             }
           }),
-          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Gemini call timed out')), 9000))
+          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Gemini call timed out')), 15000))
         ]);
 
         if (response?.text) {
@@ -477,13 +477,13 @@ app.post('/api/grounding/search', async (req, res) => {
 
         const response = await Promise.race([
           ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt,
             config: {
               tools: [{ googleSearch: {} }]
             }
           }),
-          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Search grounding timed out')), 9000))
+          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Search grounding timed out')), 15000))
         ]);
 
         const text = response?.text || '';
@@ -503,7 +503,7 @@ app.post('/api/grounding/search', async (req, res) => {
           return res.json({
             text,
             sources,
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.6-flash',
             groundingType: 'search'
           });
         }
@@ -524,7 +524,7 @@ app.post('/api/grounding/search', async (req, res) => {
         { title: 'India Meteorological Department (IMD) Cyclone Warning Division', url: 'https://mausam.imd.gov.in' },
         { title: 'National Disaster Management Authority (NDMA) Severe Weather Guidelines', url: 'https://ndma.gov.in' }
       ],
-      model: 'gemini-2.5-flash (Rule-Based Synthesis)',
+      model: 'gemini-3.6-flash (Rule-Based Synthesis)',
       groundingType: 'search'
     });
   } catch (err: any) {
@@ -557,14 +557,14 @@ app.post('/api/grounding/maps', async (req, res) => {
 
         const response = await Promise.race([
           ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.6-flash',
             contents: prompt,
             config: {
               tools: [{ googleMaps: {} }],
               ...(toolConfig ? { toolConfig } : {})
             }
           }),
-          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Maps grounding timed out')), 9000))
+          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Maps grounding timed out')), 15000))
         ]);
 
         const text = response?.text || '';
@@ -584,7 +584,7 @@ app.post('/api/grounding/maps', async (req, res) => {
           return res.json({
             text,
             sources,
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.6-flash',
             groundingType: 'maps'
           });
         }
@@ -606,7 +606,7 @@ app.post('/api/grounding/maps', async (req, res) => {
         { title: `Google Maps: Emergency Medical & Evacuation Points (${targetLat.toFixed(2)}, ${targetLon.toFixed(2)})`, url: `https://www.google.com/maps/search/hospital+emergency+shelter/@${targetLat},${targetLon},12z` },
         { title: 'District Emergency Operations Center (DEOC) Map Link', url: `https://www.google.com/maps/search/emergency+operations+center/@${targetLat},${targetLon},12z` }
       ],
-      model: 'gemini-2.5-flash (Geo-Grounded Index)',
+      model: 'gemini-3.6-flash (Geo-Grounded Index)',
       groundingType: 'maps'
     });
   } catch (err: any) {

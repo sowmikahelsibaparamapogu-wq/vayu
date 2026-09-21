@@ -53,7 +53,7 @@ Vulnerable Assets: **${criticalCount} Critical**, **${highCount} High Risk**
 
 How can I assist your operation? You can ask about **hospital vertical evacuation**, **substation de-energization**, **shelter supplies**, or use the one-click **Google Search** and **Google Maps Grounding** tools below.`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      modelUsed: 'gemini-2.5-flash'
+      modelUsed: 'gemini-3.6-flash'
     }
   ]);
 
@@ -175,7 +175,7 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
         role: 'model',
         text: `Conversation history reset. Tactical channel ready for **${cycloneName}**. Ask an operational question or select Google Search / Google Maps grounding.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        modelUsed: 'gemini-3.5-flash'
+        modelUsed: 'gemini-3.6-flash'
       }
     ]);
   };
@@ -230,7 +230,7 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
               className={`px-2 py-1 rounded transition-all flex items-center gap-1 ${
                 taskType === 'general' ? 'bg-white text-[#0B5FA5] font-bold shadow-xs' : 'text-white/80 hover:text-white'
               }`}
-              title="gemini-2.5-flash: Resilient real-time disaster advisory"
+              title="gemini-3.6-flash: Resilient real-time disaster advisory"
             >
               <Sparkles className="w-3 h-3 text-sky-300" />
               <span>General</span>
@@ -240,7 +240,7 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
               className={`px-2 py-1 rounded transition-all flex items-center gap-1 ${
                 taskType === 'complex' ? 'bg-white text-[#0B5FA5] font-bold shadow-xs' : 'text-white/80 hover:text-white'
               }`}
-              title="gemini-2.5-flash: Deep hydro-meteorological reasoning & multi-sector policy"
+              title="gemini-3.6-flash: Deep hydro-meteorological reasoning & multi-sector policy"
             >
               <Cpu className="w-3 h-3 text-purple-300" />
               <span>Pro</span>
