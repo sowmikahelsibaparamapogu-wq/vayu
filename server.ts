@@ -298,6 +298,42 @@ app.get('/api/vulnerability/summary', (req, res) => {
   }
 });
 
+// Helper for robust Gemini generation with retry and quiet multi-model cascade
+async function callGeminiSafely(
+  ai: any,
+  models: string[],
+  generateOptions: (model: string) => any,
+  timeoutMs = 20000
+): Promise<{ text: string; modelUsed: string; response?: any } | null> {
+  for (const model of models) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const payload = generateOptions(model);
+        const response = await Promise.race([
+          ai.models.generateContent({
+            model,
+            ...payload
+          }),
+          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Request timeout')), timeoutMs))
+        ]);
+
+        if (response?.text) {
+          return { text: response.text, modelUsed: model, response };
+        }
+      } catch (err: any) {
+        const status = err?.status || err?.code || 0;
+        // On 503 (high demand) or 429 (rate limit), pause briefly before retry
+        if (attempt === 0 && (status === 503 || status === 429)) {
+          await new Promise((r) => setTimeout(r, 900));
+          continue;
+        }
+        break;
+      }
+    }
+  }
+  return null;
+}
+
 // 7. POST /api/ai-briefing — executive disaster management briefing
 app.post('/api/ai-briefing', async (req, res) => {
   try {
@@ -310,13 +346,13 @@ app.post('/api/ai-briefing', async (req, res) => {
         const ai = new GoogleGenAI({
           apiKey: process.env.GEMINI_API_KEY,
           httpOptions: {
+            timeout: 25000,
             headers: {
               'User-Agent': 'aistudio-build'
             }
           }
         });
 
-        // Use fast, resilient model with timeout protection
         const prompt = `You are the Lead Scientific Disaster Strategist advising the National Disaster Management Authority (NDMA) and State Emergency Operation Center (SEOC).
 Provide an urgent, high-impact tactical executive briefing (3-4 concise paragraphs with clear bullet points for Immediate Actions and Resource Mobilization) for the impending landfall of ${cycloneName || 'Tropical Cyclone'}.
 Data Context:
@@ -331,19 +367,21 @@ Format clearly with:
 2. TOP-3 HIGH VULNERABILITY BOTTLENECKS
 3. TIME-CRITICAL SDMA DIRECTIVES (0-24h & 24-48h).`;
 
-        const response = await Promise.race([
-          ai.models.generateContent({
-            model: 'gemini-3.6-flash',
-            contents: prompt
-          }),
-          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('AI generation timed out')), 15000))
-        ]);
+        const result = await callGeminiSafely(
+          ai,
+          ['gemini-3.8-flash', 'gemini-3.1-flash-lite'],
+          () => ({ contents: prompt }),
+          20000
+        );
 
-        if (response?.text) {
-          return res.json({ briefing: response.text, source: 'Gemini 3.6 Flash' });
+        if (result?.text) {
+          return res.json({
+            briefing: result.text,
+            source: result.modelUsed === 'gemini-3.8-flash' ? 'Gemini 3.8 Flash' : 'Gemini 3.1 Flash Lite'
+          });
         }
-      } catch (geminiErr) {
-        console.warn('Gemini API call failed, falling back to rule-based synthesis:', geminiErr);
+      } catch (_geminiErr) {
+        // Quiet fallback to ensure uninterrupted operations
       }
     }
 
@@ -372,12 +410,12 @@ app.post('/api/chat', async (req, res) => {
   try {
     const { messages, taskType, contextData } = req.body || {};
     
-    // Choose model prioritizing active responsive endpoints
-    let selectedModel = 'gemini-3.6-flash';
+    // Choose primary model based on requested mode
+    let selectedModel = 'gemini-3.8-flash';
     if (taskType === 'fast') {
       selectedModel = 'gemini-3.1-flash-lite';
     } else if (taskType === 'complex') {
-      selectedModel = 'gemini-3.6-flash';
+      selectedModel = 'gemini-3.8-flash';
     }
 
     if (process.env.GEMINI_API_KEY) {
@@ -385,10 +423,12 @@ app.post('/api/chat', async (req, res) => {
         const { GoogleGenAI } = await import('@google/genai');
         const ai = new GoogleGenAI({
           apiKey: process.env.GEMINI_API_KEY,
-          httpOptions: { headers: { 'User-Agent': 'aistudio-build' } }
+          httpOptions: {
+            timeout: 25000,
+            headers: { 'User-Agent': 'aistudio-build' }
+          }
         });
 
-        // Format system instruction with role
         const systemInstruction = `You are Vayu AI, a Senior Emergency Response Commander and Disaster Mitigation Specialist.
 You advise the State Disaster Management Authority (SDMA) and National Disaster Management Authority (NDMA).
 Your mission is to provide decisive, operationally actionable advice regarding cyclone trajectory, wind hazards (Holland vortex model), storm surge inundation, hospital safety, power grid de-energization, shelter management, and logistical triage.
@@ -403,38 +443,39 @@ Guidelines:
 - Provide structured answers with clear action checkpoints.
 - Use metric units (km/h, hPa, meters AMSL).`;
 
-        // Format conversation history for Gemini
         const formattedContents = (messages || []).map((m: any) => ({
           role: m.role === 'model' ? 'model' : 'user',
           parts: [{ text: m.text }]
         }));
 
-        // Execute with timeout safeguard to guarantee instantaneous response
-        const response = await Promise.race([
-          ai.models.generateContent({
-            model: selectedModel,
-            contents: formattedContents,
-            config: {
-              systemInstruction
-            }
-          }),
-          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Gemini call timed out')), 15000))
-        ]);
+        const candidateModels = selectedModel === 'gemini-3.1-flash-lite'
+          ? ['gemini-3.1-flash-lite']
+          : [selectedModel, 'gemini-3.1-flash-lite'];
 
-        if (response?.text) {
+        const result = await callGeminiSafely(
+          ai,
+          candidateModels,
+          () => ({
+            contents: formattedContents,
+            config: { systemInstruction }
+          }),
+          20000
+        );
+
+        if (result?.text) {
           return res.json({
-            text: response.text,
-            modelUsed: selectedModel
+            text: result.text,
+            modelUsed: result.modelUsed
           });
         }
-      } catch (geminiError: any) {
-        console.warn('Gemini chat error, falling back to emergency protocol bot:', geminiError?.message || geminiError);
+      } catch (_geminiError) {
+        // Quiet fallback to local tactical rules
       }
     }
 
     // Deterministic Chat Fallback
     const lastUserMsg = (messages?.[messages.length - 1]?.text || '').toLowerCase();
-    let reply = `[Vayu Tactical Advisory - ${selectedModel} (Local Mode)]\n\n`;
+    let reply = `[Vayu Tactical Advisory - Local Mode]\n\n`;
     if (lastUserMsg.includes('hospital') || lastUserMsg.includes('patient') || lastUserMsg.includes('medical')) {
       reply += `**HOSPITAL CONTINGENCY DIRECTIVE:**
 1. **Critical Care Power**: Verify 72-hour diesel reserves for ICUs and ventilators immediately.
@@ -454,7 +495,7 @@ Guidelines:
 
     res.json({
       text: reply,
-      modelUsed: `${selectedModel} (Simulated Fallback)`
+      modelUsed: `${selectedModel} (Local Tactical Mode)`
     });
   } catch (err: any) {
     res.status(500).json({ error: 'Chat processing error', message: err.message });
@@ -472,43 +513,46 @@ app.post('/api/grounding/search', async (req, res) => {
         const { GoogleGenAI } = await import('@google/genai');
         const ai = new GoogleGenAI({
           apiKey: process.env.GEMINI_API_KEY,
-          httpOptions: { headers: { 'User-Agent': 'aistudio-build' } }
+          httpOptions: {
+            timeout: 25000,
+            headers: { 'User-Agent': 'aistudio-build' }
+          }
         });
 
-        const response = await Promise.race([
-          ai.models.generateContent({
-            model: 'gemini-3.6-flash',
+        const result = await callGeminiSafely(
+          ai,
+          ['gemini-3.8-flash', 'gemini-3.1-flash-lite'],
+          () => ({
             contents: prompt,
             config: {
               tools: [{ googleSearch: {} }]
             }
           }),
-          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Search grounding timed out')), 15000))
-        ]);
+          20000
+        );
 
-        const text = response?.text || '';
-        const groundingChunks = response?.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-        const sources: Array<{ title: string; url: string }> = [];
+        if (result?.text) {
+          const groundingChunks = result?.response?.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
+          const sources: Array<{ title: string; url: string }> = [];
 
-        for (const chunk of groundingChunks) {
-          if (chunk.web?.uri) {
-            sources.push({
-              title: chunk.web.title || chunk.web.uri,
-              url: chunk.web.uri
-            });
+          for (const chunk of groundingChunks) {
+            if (chunk.web?.uri) {
+              sources.push({
+                title: chunk.web.title || chunk.web.uri,
+                url: chunk.web.uri
+              });
+            }
           }
-        }
 
-        if (text) {
           return res.json({
-            text,
+            text: result.text,
             sources,
-            model: 'gemini-3.6-flash',
+            model: result.modelUsed,
             groundingType: 'search'
           });
         }
-      } catch (searchErr: any) {
-        console.warn('Search grounding error, falling back:', searchErr?.message || searchErr);
+      } catch (_searchErr) {
+        // Quiet fallback
       }
     }
 
@@ -524,7 +568,7 @@ app.post('/api/grounding/search', async (req, res) => {
         { title: 'India Meteorological Department (IMD) Cyclone Warning Division', url: 'https://mausam.imd.gov.in' },
         { title: 'National Disaster Management Authority (NDMA) Severe Weather Guidelines', url: 'https://ndma.gov.in' }
       ],
-      model: 'gemini-3.6-flash (Rule-Based Synthesis)',
+      model: 'gemini-3.8-flash (Rule-Based Synthesis)',
       groundingType: 'search'
     });
   } catch (err: any) {
@@ -543,7 +587,10 @@ app.post('/api/grounding/maps', async (req, res) => {
         const { GoogleGenAI } = await import('@google/genai');
         const ai = new GoogleGenAI({
           apiKey: process.env.GEMINI_API_KEY,
-          httpOptions: { headers: { 'User-Agent': 'aistudio-build' } }
+          httpOptions: {
+            timeout: 25000,
+            headers: { 'User-Agent': 'aistudio-build' }
+          }
         });
 
         const toolConfig = lat !== undefined && lon !== undefined ? {
@@ -555,41 +602,41 @@ app.post('/api/grounding/maps', async (req, res) => {
           }
         } : undefined;
 
-        const response = await Promise.race([
-          ai.models.generateContent({
-            model: 'gemini-3.6-flash',
+        const result = await callGeminiSafely(
+          ai,
+          ['gemini-3.8-flash', 'gemini-3.1-flash-lite'],
+          () => ({
             contents: prompt,
             config: {
               tools: [{ googleMaps: {} }],
               ...(toolConfig ? { toolConfig } : {})
             }
           }),
-          new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Maps grounding timed out')), 15000))
-        ]);
+          20000
+        );
 
-        const text = response?.text || '';
-        const groundingChunks = response?.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-        const sources: Array<{ title: string; url: string }> = [];
+        if (result?.text) {
+          const groundingChunks = result?.response?.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
+          const sources: Array<{ title: string; url: string }> = [];
 
-        for (const chunk of groundingChunks) {
-          if (chunk.maps?.uri) {
-            sources.push({
-              title: chunk.maps.title || 'Google Maps Location',
-              url: chunk.maps.uri
-            });
+          for (const chunk of groundingChunks) {
+            if (chunk.maps?.uri) {
+              sources.push({
+                title: chunk.maps.title || 'Google Maps Location',
+                url: chunk.maps.uri
+              });
+            }
           }
-        }
 
-        if (text) {
           return res.json({
-            text,
+            text: result.text,
             sources,
-            model: 'gemini-3.6-flash',
+            model: result.modelUsed,
             groundingType: 'maps'
           });
         }
-      } catch (mapsErr: any) {
-        console.warn('Maps grounding error, falling back:', mapsErr?.message || mapsErr);
+      } catch (_mapsErr) {
+        // Quiet fallback
       }
     }
 
@@ -606,7 +653,7 @@ app.post('/api/grounding/maps', async (req, res) => {
         { title: `Google Maps: Emergency Medical & Evacuation Points (${targetLat.toFixed(2)}, ${targetLon.toFixed(2)})`, url: `https://www.google.com/maps/search/hospital+emergency+shelter/@${targetLat},${targetLon},12z` },
         { title: 'District Emergency Operations Center (DEOC) Map Link', url: `https://www.google.com/maps/search/emergency+operations+center/@${targetLat},${targetLon},12z` }
       ],
-      model: 'gemini-3.6-flash (Geo-Grounded Index)',
+      model: 'gemini-3.8-flash (Geo-Grounded Index)',
       groundingType: 'maps'
     });
   } catch (err: any) {

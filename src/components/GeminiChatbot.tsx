@@ -53,7 +53,7 @@ Vulnerable Assets: **${criticalCount} Critical**, **${highCount} High Risk**
 
 How can I assist your operation? You can ask about **hospital vertical evacuation**, **substation de-energization**, **shelter supplies**, or use the one-click **Google Search** and **Google Maps Grounding** tools below.`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      modelUsed: 'gemini-3.6-flash'
+      modelUsed: 'gemini-3.8-flash'
     }
   ]);
 
@@ -175,7 +175,7 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
         role: 'model',
         text: `Conversation history reset. Tactical channel ready for **${cycloneName}**. Ask an operational question or select Google Search / Google Maps grounding.`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        modelUsed: 'gemini-3.6-flash'
+        modelUsed: 'gemini-3.8-flash'
       }
     ]);
   };
@@ -202,7 +202,7 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
                 Vayu Tactical Assistant
               </h3>
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-sky-400/20 text-sky-200 border border-sky-300/30 font-medium">
-                Multi-Turn Gemini
+                Gemini 3.8 Flash
               </span>
             </div>
             <p className="text-[11px] text-sky-100/80">
@@ -230,7 +230,7 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
               className={`px-2 py-1 rounded transition-all flex items-center gap-1 ${
                 taskType === 'general' ? 'bg-white text-[#0B5FA5] font-bold shadow-xs' : 'text-white/80 hover:text-white'
               }`}
-              title="gemini-3.6-flash: Resilient real-time disaster advisory"
+              title="gemini-3.8-flash: Resilient real-time disaster advisory"
             >
               <Sparkles className="w-3 h-3 text-sky-300" />
               <span>General</span>
@@ -240,7 +240,7 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
               className={`px-2 py-1 rounded transition-all flex items-center gap-1 ${
                 taskType === 'complex' ? 'bg-white text-[#0B5FA5] font-bold shadow-xs' : 'text-white/80 hover:text-white'
               }`}
-              title="gemini-3.6-flash: Deep hydro-meteorological reasoning & multi-sector policy"
+              title="gemini-3.8-flash: Deep hydro-meteorological reasoning & multi-sector policy"
             >
               <Cpu className="w-3 h-3 text-purple-300" />
               <span>Pro</span>
@@ -301,12 +301,12 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
           Active Model:{' '}
           <span className="font-semibold text-slate-700">
             {groundingMode === 'search' || groundingMode === 'maps'
-              ? 'gemini-3.5-flash (grounded)'
+              ? 'gemini-3.8-flash (grounded)'
               : taskType === 'complex'
-              ? 'gemini-3.1-pro-preview'
+              ? 'gemini-3.8-flash'
               : taskType === 'fast'
               ? 'gemini-3.1-flash-lite'
-              : 'gemini-3.5-flash'}
+              : 'gemini-3.8-flash'}
           </span>
         </div>
       </div>
@@ -441,15 +441,15 @@ How can I assist your operation? You can ask about **hospital vertical evacuatio
               <Loader2 className="w-4 h-4 animate-spin text-[#0B5FA5]" />
               <span>
                 {groundingMode === 'search'
-                  ? 'Querying real-time Google Search with gemini-3.5-flash...'
+                  ? 'Querying real-time Google Search with gemini-3.8-flash...'
                   : groundingMode === 'maps'
-                  ? 'Grounding spatial places with Google Maps & gemini-3.5-flash...'
+                  ? 'Grounding spatial places with Google Maps & gemini-3.8-flash...'
                   : `Synthesizing tactical response via ${
                       taskType === 'complex'
-                        ? 'gemini-3.1-pro-preview'
+                        ? 'gemini-3.8-flash'
                         : taskType === 'fast'
                         ? 'gemini-3.1-flash-lite'
-                        : 'gemini-3.5-flash'
+                        : 'gemini-3.8-flash'
                     }...`}
               </span>
             </div>
